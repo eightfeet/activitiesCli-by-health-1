@@ -71,7 +71,6 @@ export default class App extends Component {
 		console.log(this.context);
 		return (
 			<div id="app"  >
-				<HeaderBar />
 				<Router history={history}>
 					<Home path="/" />
 					<SecurityCode path="/securitycode" />
