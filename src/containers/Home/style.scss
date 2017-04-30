@@ -19,5 +19,49 @@
 	border-radius: fixpx(10);
 	background-color: rgb(255, 255, 255);
 	height: fixpx(441);
-	margin-top: 89px;
+	margin-top: fixpx(89);
+	position: relative;
 }
+
+.face {
+	position: absolute;
+	left: 50%;
+	margin-left: fixpx(-137 / 2);
+	top: 2rem;
+  	width: fixpx(137);
+	height: fixpx(137);
+	border-radius: fixpx(100);
+	background-color: #c2c2c2;
+	-webkit-box-shadow: 0 fixpx(5) fixpx(8) #666;
+	-moz-box-shadow: 0 fixpx(5) fixpx(8) #666;
+	box-shadow: 0 fixpx(5) fixpx(8) #666;
+	border: solid fixpx(6) #fff;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		display: block;
+	}
+}
+
+.info {
+	li {
+		height: 1.5rem;
+		margin-top: 0.5rem;
+		float: left;
+	}
+}
+
+.btnrz {
+	width: fixpx(104);
+	height: fixpx(32);
+	line-height: fixpx(32);
+	font-size: 0.8rem;
+	padding: 0 1rem;
+	color: #d71111;
+	border-radius: 10rem;
+	background-color: #fff;
+	border: solid 1px #d71111;
+}
+
+

@@ -7,6 +7,8 @@ import Loading from '~/components/Loading';
 import s from './style';
 import sl from './styleb';
 
+import face from './face.jpg';
+
 export default class Home extends Component {
 	constructor() {
 		super();
@@ -78,7 +80,21 @@ export default class Home extends Component {
 			<div>
 				<div className={s.orbg} />
 				<div className={classNames(s.wrap, 'w9', 'center', 'pr')}>
-					<div className={s.card}></div>
+					<div className={s.card}>
+						<h3 className="w9 center pdt5">李大厨</h3>
+						<ul className={classNames('clearfix', 'nls', 'w9', 'center', s.info)}>
+							<li className="w2 al-r">电话：</li>
+							<li className="w5 font-biggest">13783821431</li>
+							<li className="w3 al-r"><span className={s.btnrz}>去认证</span></li>
+							<li className="w2 al-r">公司：</li>
+							<li className="w8">未知</li>
+							<li className="w2 al-r">邮箱：</li>
+							<li className="w6">暂无</li>
+						</ul>
+					</div>
+					<div className={s.face}>
+						<img src={face} alt=""/>
+					</div>
 				</div>
 				<Modal
 					contentLabel="ModalB"
