@@ -91,6 +91,22 @@ export default class Home extends Component {
 							<li className="w2 al-r">邮箱：</li>
 							<li className="w6">暂无</li>
 						</ul>
+						<div className="w9-8 center clearfix">
+							<ul className={classNames(s.banner, 'nls', 'clearfix')}>
+								<li className="w3-3-3 txt_cut">
+									<span className="icon-hot font-biggest"></span>
+									人气:1311123
+								</li>
+								<li className={classNames('w3-3-3', 'txt_cut', s.bdl)}>
+									<span className="icon-zan font-biggest"></span>
+									点赞:1311123
+								</li>
+								<li className={classNames('w3-3-3', 'txt_cut', s.bdl)}>
+									<span className="icon-fav font-biggest"></span>
+									收藏:1311123
+								</li>
+							</ul>
+						</div>
 					</div>
 					<div className={s.face}>
 						<img src={face} alt=""/>
