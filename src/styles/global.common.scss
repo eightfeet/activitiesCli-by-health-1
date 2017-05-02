@@ -425,3 +425,13 @@ body {
   rgba(black, $shadowalph) fixpx(-5) 0 fixpx(5),
   rgba(black, $shadowalph) 0 0 0;
 }
+
+.btn {
+  background-color: #fa7a48;
+  border-radius: fixpx(10);
+  height: fixpx(90);
+	line-height: fixpx(90);
+	text-align: center;
+	color: #fff;
+}
+
