@@ -167,3 +167,31 @@
 		border-bottom: 1px solid #e1e1e1;
 	}
 }
+
+.swipeitem {
+	height: fixpx(130);
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+
+	div {
+		float: left;
+		width: 25%;
+		text-align: center;
+		box-sizing: border-box;
+		padding: 0 0.2rem;
+
+		img {
+			width: fixpx(95);
+			height: fixpx(95);
+		}
+	}
+}
+
+.swbar {
+	span {
+		display: inline-block;
+		height: fixpx(130);
+		line-height: fixpx(130);
+		text-align: center;
+	}
+}

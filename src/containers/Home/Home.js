@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+import SwipeableViews from 'react-swipeable-views';
 import { FStringPrivacy, FTimeStamp } from '~/utils/fliter';
 import history from '~/core/history';
 import classNames from 'classnames';
@@ -142,7 +143,96 @@ export default class Home extends Component {
 
 						<div className={s.xsrc}>
 							<h3>相似人才</h3>
-							<div>123</div>
+							<div className={classNames('clearfix', s.swbar)}>
+								<div className="fl w-5">
+									<span className="icon-leftarrow" />
+								</div>
+								<div className="fl w9">
+									<SwipeableViews>
+										<div className={s.swipeitem}>
+											<div>
+												<img src={face} alt=""/>
+												<p className="al-c">
+													name
+												</p>
+											</div>
+											<div>
+												<img src={face} alt=""/>
+												<p className="al-c">
+													name
+												</p>
+											</div>
+											<div>
+												<img src={face} alt=""/>
+												<p className="al-c">
+													name
+												</p>
+											</div>
+											<div>
+												<img src={face} alt=""/>
+												<p className="al-c">
+													name
+												</p>
+											</div>
+										</div>
+										<div className={s.swipeitem}>
+											<div>
+												<img src={face} alt=""/>
+												<p className="al-c">
+													name
+												</p>
+											</div>
+											<div>
+												<img src={face} alt=""/>
+												<p className="al-c">
+													name
+												</p>
+											</div>
+											<div>
+												<img src={face} alt=""/>
+												<p className="al-c">
+													name
+												</p>
+											</div>
+											<div>
+												<img src={face} alt=""/>
+												<p className="al-c">
+													name
+												</p>
+											</div>
+										</div>
+										<div className={s.swipeitem}>
+											<div>
+												<img src={face} alt=""/>
+												<p className="al-c">
+													name
+												</p>
+											</div>
+											<div>
+												<img src={face} alt=""/>
+												<p className="al-c">
+													name
+												</p>
+											</div>
+											<div>
+												<img src={face} alt=""/>
+												<p className="al-c">
+													name
+												</p>
+											</div>
+											<div>
+												<img src={face} alt=""/>
+												<p className="al-c">
+													name
+												</p>
+											</div>
+										</div>
+									</SwipeableViews>
+								</div>
+								<div className="fl w-5">
+									<span className="icon-rightarrow" />
+								</div>
+							</div>
 						</div>
 
 						<div className="btn mgt-8">递交名片</div>
