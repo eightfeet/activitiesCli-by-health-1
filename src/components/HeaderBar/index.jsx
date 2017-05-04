@@ -1,6 +1,7 @@
 import { h, Component } from 'preact';
 import { Link } from 'preact-router';
 import SubNav from './SubNav';
+import history from '~/core/history';
 import s from './HeaderBar.scss';
 import logo from '~/assets/logo.png';
 import svglogo from '~/assets/logo.svg';
@@ -13,46 +14,25 @@ class HeaderBar extends Component {
 			isSubMenu: false
 		};
 	}
-	handlerSearch = () => {
-		const serchinput = window.document.getElementById('search');
-		if (this.state.isSearch) {
-			this.setState({ isSearch: false });
-			serchinput.blur();
-		} else {
-			this.setState({ isSearch: true });
-			serchinput.focus();
-		}
-	}
-
-	handlerOpenMenu = () => {
-		if (!this.state.isSubMenu) {
-			this.setState({ isSubMenu: true });
-		}
-	}
-	handlerCloseMenu = () => {
-		if (this.state.isSubMenu) {
-			this.setState({ isSubMenu: false });
-		}
-	}
 
 	render() {
+		const { Next } = this.props;
 		return (
       <header>
-        <div className={`${s.heardbar} clearfix`}>
-          <div className="center w3 pr">
-            <img
-              ref={(ref) => { this.logoRef = ref; }}
-              src={svglogo}
-              onError={() => { this.logoRef.src = logo; }}
-              className={s.svglogo}
-            />
+        <div className={`${s.heardbar} clearfix  bg-orangered`}>
+          <div className="center w6 pr al-c font-bigger white txt_cut">
+            {this.props.setTitle}
           </div>
-          <div className={`${s.fixleft} ${s.headerbarIcon}`} onClick={this.handlerOpenMenu}>
-            <span className={`icon-more-b ${s.bannerico}`} />
-          </div>
+					{
+						this.props.goBack ? <div onClick={history.goBack}>
+						<div className={`${s.fixleft} ${s.headerbarIcon}`} onClick={this.handlerOpenMenu}>
+							<span className={`icon-leftarrow ${s.bannerico}`} />
+						</div>
+					</div> : null
+					}
           <div className={`${s.fixright} ${s.headerbarIcon}`} >
-            <Link to="/search">
-              <span className={`icon-search-a ${s.bannerico}`} />
+            <Link href={Next ? Next.link : null}>
+              <span className={`${Next ? Next.icon : null} ${s.bannerico}`} />
             </Link>
           </div>
 

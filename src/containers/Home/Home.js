@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
 import SwipeableViews from 'react-swipeable-views';
+import DockBar from '~/components/DockBar';
 import { FStringPrivacy, FTimeStamp } from '~/utils/fliter';
 import history from '~/core/history';
 import classNames from 'classnames';
@@ -248,7 +249,7 @@ export default class Home extends Component {
 						<h2 className="al-c mgb1" >modalB</h2>
 					</div>
 				</Modal>
-
+				<DockBar current={1} />
 			</div>
 		);
 	}

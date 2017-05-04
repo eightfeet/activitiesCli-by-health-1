@@ -1,6 +1,25 @@
 import { h, Component } from 'preact';
+import { Link } from 'preact-router/match';
 import classNames from 'classnames';
 import s from './DockBar.scss';
+
+const listData = [{
+	icon: 'icon-mp',
+	name: '名片',
+	link: '/'
+}, {
+	icon: 'icon-mpj',
+	name: '名片夹',
+	link: '/cardholder'
+}, {
+	icon: 'icon-bp',
+	name: '帮派',
+	link: '/organization'
+}, {
+	icon: 'icon-wo',
+	name: '我',
+	link: '/usercenter'
+}];
 
 export default class DockBar extends Component {
 
@@ -10,22 +29,14 @@ export default class DockBar extends Component {
 				className={s.root}
 			>
 				<ul className="clearfix nls">
-					<li className={s.active}>
-						<span className="icon-mp" /><br/>
-						名片
-					</li>
-					<li>
-						<span className="icon-mpj" /><br/>
-						名片夹
-					</li>
-					<li>
-						<span className="icon-bp" /><br/>
-						帮派
-					</li>
-					<li>
-						<span className="icon-wo" /><br/>
-						我
-					</li>
+					{
+						listData.map((item, i) => (<li className={i === (this.props.current - 1) ? s.active : null}>
+						<Link href={item.link}>
+							<span className={item.icon} /><br />
+							{item.name}
+						</Link>
+					</li>))
+					}
 				</ul>
 			</div>
 		);
