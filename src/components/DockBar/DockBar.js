@@ -26,7 +26,7 @@ export default class DockBar extends Component {
 	render() {
 		return (
 			<div
-				className={s.root}
+				className={`${s.root} shadow-top`}
 			>
 				<ul className="clearfix nls">
 					{

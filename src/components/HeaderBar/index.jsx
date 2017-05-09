@@ -1,6 +1,5 @@
 import { h, Component } from 'preact';
 import { Link } from 'preact-router';
-import SubNav from './SubNav';
 import history from '~/core/history';
 import s from './HeaderBar.scss';
 import logo from '~/assets/logo.png';
@@ -42,9 +41,7 @@ class HeaderBar extends Component {
           ? `fr ${s.submenu} show`
           : `fr ${s.submenu} hide`}
           onClick={this.handlerCloseMenu}
-
         >
-          <SubNav />
         </div>
       </header>
 		);
