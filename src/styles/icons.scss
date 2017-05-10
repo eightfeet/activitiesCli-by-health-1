@@ -1,10 +1,13 @@
-$icon-zan: "\e900";
-$icon-hot: "\e901";
-$icon-fav: "\e902";
+$icon-add: "\e900";
+$icon-downarrow: "\e90d";
+$icon-uparrow: "\e90e";
+$icon-mpj: "\e90c";
+$icon-zan: "\e901";
+$icon-hot: "\e902";
+$icon-fav: "\e90f";
 $icon-rightarrow: "\e903";
 $icon-empty: "\e904";
 $icon-bp: "\e905";
-$icon-mpj: "\e90c";
 $icon-mpj2: "\e906";
 $icon-wo: "\e907";
 $icon-mp: "\e908";
@@ -57,7 +60,26 @@ $icon-jhmp: "\e90b";
 }
 
 
-
+.icon-add {
+  &:before {
+    content: $icon-add;
+  }
+}
+.icon-downarrow {
+  &:before {
+    content: $icon-downarrow;
+  }
+}
+.icon-uparrow {
+  &:before {
+    content: $icon-uparrow;
+  }
+}
+.icon-mpj {
+  &:before {
+    content: $icon-mpj;
+  }
+}
 .icon-zan {
   &:before {
     content: $icon-zan;
@@ -86,11 +108,6 @@ $icon-jhmp: "\e90b";
 .icon-bp {
   &:before {
     content: $icon-bp;
-  }
-}
-.icon-mpj {
-  &:before {
-    content: $icon-mpj;
   }
 }
 .icon-mpj2 {
@@ -123,4 +140,3 @@ $icon-jhmp: "\e90b";
     content: $icon-jhmp;
   }
 }
-

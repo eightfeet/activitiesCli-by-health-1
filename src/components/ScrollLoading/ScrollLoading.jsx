@@ -167,8 +167,8 @@ class ScrollLoading extends Component {
           </div>
         </div>
         { this.props.backToTop ? <div className={`${s.backtotop} ${showBackToTop ? 'show' : 'hide'}`} onClick={this.handleTop} >
-          <div className="al-c icon-backtotop green-dark pdt1" style={{ fontSize: '1.8rem' }} />
-          <p className="green-dark al-c font-small">置顶</p></div> : null }
+          <div className="al-c icon-uparrow orangered pdt1" style={{ fontSize: '1.8rem' }} />
+          <p className="orangered al-c font-small">置顶</p></div> : null }
       </div>
 		);
 	}
