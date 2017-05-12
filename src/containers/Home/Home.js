@@ -1,16 +1,21 @@
 import { h, Component } from 'preact';
 import SwipeableViews from 'react-swipeable-views';
+import { autoPlay } from 'react-swipeable-views-utils';
 import DockBar from '~/components/DockBar';
 import { FStringPrivacy, FTimeStamp } from '~/utils/fliter';
 import history from '~/core/history';
 import classNames from 'classnames';
 import Modal from '~/components/Modal';
+import ScrollLoading from '~/components/ScrollLoading';
 import Loading from '~/components/Loading';
 import s from './style';
 import prd from './ex.jpg';
 import sl from './styleb';
 
 import face from './face.jpg';
+
+
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 export default class Home extends Component {
 	constructor() {
@@ -19,24 +24,11 @@ export default class Home extends Component {
 			showModal: false,
 			showModalb: false,
 			voiceId: null,
-			voiceStatus: '0'
+			voiceStatus: '0',
+			index: 0,
+			swipe: [1, 2, 3, 4],
+			works: [1, 2, 3, 4]
 		};
-	}
-
-	handleOpenModal = () => {
-		this.setState({ showModal: true });
-	}
-
-	handleCloseModal = () => {
-		this.setState({ showModal: false });
-	}
-
-	handleOpenModalb = () => {
-		this.setState({ showModalb: true });
-	}
-
-	handleCloseModalb = () => {
-		this.setState({ showModalb: false });
 	}
 
 	handelLoading = () => {
@@ -46,39 +38,31 @@ export default class Home extends Component {
 		}, 4000);
 	}
 
-	handleStartVoice = () => {
-		window.wx.ready(() => {
-			window.wx.startRecord();
-			this.setState({
-				voiceStatus: '1'
-			});
-		});
-	}
+	handleAction = () => new Promise((resolve) => {
+		console.log('22222');
+	});
 
-	handleEndVoice = () => {
-		let __this = this;
-		window.wx.stopRecord({
-			success (res) {
-				__this.setState({
-					voiceId: res.localId,
-					voiceStatus: '2'
-				});
-			}
-		});
-	}
-
-	handlePlayVoice = () => {
-		let __this = this;
-		window.wx.playVoice({
-			localId: this.state.voiceId
-		});
+	handleChangeIndex = (index) => {
 		this.setState({
-			voiceStatus: '0'
+			index
 		});
+	}
+
+	handlePage = (n) => () => {
+		const length = this.state.swipe.length - 1;
+		const { index } = this.state;
+		// 👉
+		if (n === 1) {
+			this.handleChangeIndex(index < length ? index + 1 : 0);
+		}
+		// 👈
+		if (n === 0) {
+			this.handleChangeIndex(index > 0 ? index - 1 : length);
+		}
 	}
 
 	render() {
-		console.log(this.context);
+		// console.log(this.context);
 		return (
 			<div className={s.root}>
 				<div className={classNames(s.wrap, 'center', 'pr')}>
@@ -116,121 +100,75 @@ export default class Home extends Component {
 							<img src={face} alt=""/>
 						</div>
 						<div className={s.tabinfo}>
-							<div className="clearfix">
-								<div className={classNames(s.item, s.active)}>作品</div>
-								<div className={s.item}>资料</div>
-							</div>
-							<div className={s.list}>
-								<div className={classNames("clearfix", s.prditem)}>
-									<div className={s.l}>
-										<img src={prd} alt=""/>
-									</div>
-									<div className={s.r}>
-										<h3>手撕鸡</h3>
-										<p>选用三黄鸡为原料，其中，外皮金黄 可谓手撕鸡的卖点之一...</p>
-									</div>
+								<div className="clearfix">
+									<div className={classNames(s.item, s.active)}>作品</div>
+									<div className={s.item}>资料</div>
 								</div>
-								<div className={classNames("clearfix", s.prditem)}>
-									<div className={s.l}>
-										<img src={prd} alt=""/>
-									</div>
-									<div className={s.r}>
-										<h3>手撕鸡</h3>
-										<p>选用三黄鸡为原料，其中，外皮金黄 可谓手撕鸡的卖点之一...</p>
-									</div>
+								<div className={classNames(s.list, 'pr')}>
+									<ScrollLoading
+										handleAction={this.handleAction}
+										setId={'aaa'}
+									>
+										{this.state.works.map(item => (
+											<div key={item} className={classNames("clearfix", s.prditem)}>
+												<div className={s.l}>
+													<img src={prd} alt=""/>
+												</div>
+												<div className={s.r}>
+													<h3>手撕鸡</h3>
+													<p>选用三黄鸡为原料，其中，外皮金黄 可谓手撕鸡的卖点之一...</p>
+												</div>
+											</div>))
+										}
+									</ScrollLoading>
 								</div>
-							</div>
 						</div>
 
 						<div className={s.xsrc}>
 							<h3>相似人才</h3>
 							<div className={classNames('clearfix', s.swbar)}>
-								<div className="fl w-5">
+								<div className="fl w-5" onClick={this.handlePage(0)}>
 									<span className="icon-leftarrow" />
 								</div>
 								<div className="fl w9">
-									<SwipeableViews>
-										<div className={s.swipeitem}>
-											<div>
-												<img src={face} alt=""/>
-												<p className="al-c">
-													name
-												</p>
-											</div>
-											<div>
-												<img src={face} alt=""/>
-												<p className="al-c">
-													name
-												</p>
-											</div>
-											<div>
-												<img src={face} alt=""/>
-												<p className="al-c">
-													name
-												</p>
-											</div>
-											<div>
-												<img src={face} alt=""/>
-												<p className="al-c">
-													name
-												</p>
-											</div>
-										</div>
-										<div className={s.swipeitem}>
-											<div>
-												<img src={face} alt=""/>
-												<p className="al-c">
-													name
-												</p>
-											</div>
-											<div>
-												<img src={face} alt=""/>
-												<p className="al-c">
-													name
-												</p>
-											</div>
-											<div>
-												<img src={face} alt=""/>
-												<p className="al-c">
-													name
-												</p>
-											</div>
-											<div>
-												<img src={face} alt=""/>
-												<p className="al-c">
-													name
-												</p>
-											</div>
-										</div>
-										<div className={s.swipeitem}>
-											<div>
-												<img src={face} alt=""/>
-												<p className="al-c">
-													name
-												</p>
-											</div>
-											<div>
-												<img src={face} alt=""/>
-												<p className="al-c">
-													name
-												</p>
-											</div>
-											<div>
-												<img src={face} alt=""/>
-												<p className="al-c">
-													name
-												</p>
-											</div>
-											<div>
-												<img src={face} alt=""/>
-												<p className="al-c">
-													name
-												</p>
-											</div>
-										</div>
-									</SwipeableViews>
+									<AutoPlaySwipeableViews
+										interval={8000}
+										onChangeIndex={this.handleChangeIndex}
+										index={this.state.index}
+									>
+										{
+											this.state.swipe.map(item =>
+												(<div key={item} className={s.swipeitem}>
+													<div>
+														<img src={face} alt=""/>
+														<p className="al-c">
+															{item}name
+														</p>
+													</div>
+													<div>
+														<img src={face} alt=""/>
+														<p className="al-c">
+															name
+														</p>
+													</div>
+													<div>
+														<img src={face} alt=""/>
+														<p className="al-c">
+															name
+														</p>
+													</div>
+													<div>
+														<img src={face} alt=""/>
+														<p className="al-c">
+															name
+														</p>
+													</div>
+												</div>)
+											)
+										}
+									</AutoPlaySwipeableViews>
 								</div>
-								<div className="fl w-5">
+								<div className="fl w-5" onClick={this.handlePage(1)}>
 									<span className="icon-rightarrow" />
 								</div>
 							</div>
