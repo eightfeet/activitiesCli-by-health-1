@@ -161,6 +161,27 @@ button:focus {
   outline: 0;
 }
 
+//==input
+input,select{
+  height: 2.333rem;
+  box-sizing: border-box;
+  border-radius: .3rem;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 0 1rem;
+	appearance:none;
+  vertical-align: middle;
+  font-size: 1rem;
+}
+
+input[type=text],select{
+  display: block;
+  width: 100%;
+}
+select{
+	padding-right: 2.5rem;
+}
+
 .formBox{
   input[type="text"], input[type="tel"], input[type="number"] {
     border-radius: .3rem;
@@ -169,10 +190,10 @@ button:focus {
     height: 2.333rem;
     padding: 0 1rem;
     box-sizing: border-box;
+		border: 1px solid #ccc;
   }
 	select {
 		height: 2.5rem;
 		background-color: transparent;
-		border: none;
 	}
 }

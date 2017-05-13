@@ -7,6 +7,7 @@ import Home from '~/containers/Home';
 import CardHolder from '~/containers/CardHolder';
 import Organization from '~/containers/Organization';
 import UserCenter from '~/containers/UserCenter';
+import Create from '~/containers/Create';
 
 
 import {wechatInfo} from '~/config';
@@ -40,6 +41,7 @@ export default class App extends Component {
 				<Router history={history}>
 					<Home path="/" />
 					<CardHolder path="/cardholder" />
+					<Create path="/create" />
 					<Organization path="/organization"/>
 					<UserCenter path="/usercenter" />
 					<Home default />

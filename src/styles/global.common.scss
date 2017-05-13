@@ -417,6 +417,7 @@ body {
 }
 #app {
     max-width: 640px;
+		overflow: hidden;
     margin: 0 auto;
     position: relative;
     height: 100%;

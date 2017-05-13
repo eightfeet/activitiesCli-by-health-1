@@ -1,6 +1,15 @@
 .close {
 	position: absolute;
-	right: 0;
+	right: 0.5rem;
+	top: 0.5rem;
+	width: 1.6rem;
+	height: 1.6rem;
+	background-color: transparent;
+	font-size: 1.5rem;
+	color: #aaa;
+	transform: rotate(45deg);
+	border: 1px solid #aaa;
+	border-radius: 10rem;
 }
 .warp{
 	transform: translate(-50%, -50%)

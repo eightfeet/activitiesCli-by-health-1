@@ -2,6 +2,7 @@ import { h, Component } from 'preact';
 import DockBar from '~/components/DockBar';
 import HeaderBar from '~/components/HeaderBar';
 import ScrollLoading from '~/components/ScrollLoading';
+import Modal from '~/components/Modal';
 import s from './CardHolder.scss';
 
 
@@ -10,13 +11,18 @@ export default class CardHolder extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+			list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+			showModal: true
 		};
 	}
 
 	handleAction = () => new Promise((resolve) => {
 		console.log('22222');
 	});
+
+	handleCloseModal = () => {
+		this.setState({ showModal: false });
+	}
 
 	render() {
 		const { list } = this.state;
@@ -51,6 +57,15 @@ export default class CardHolder extends Component {
 					</ScrollLoading>
 				</div>
 				<DockBar current={2} />
+				<Modal
+					contentLabel="ModalB"
+					isOpen={this.state.showModal}
+					onRequestClose={this.handleCloseModal}
+					shouldCloseOnOverlayClick={true}
+				>
+					<h3 className="al-c orangered pdt1">访问失败</h3>
+					<p className="al-c pdt1-5">页面加载失败！</p>
+				</Modal>
 			</div>
 		);
 	}

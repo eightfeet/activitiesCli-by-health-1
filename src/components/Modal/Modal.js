@@ -1,6 +1,7 @@
 import { h, Component } from 'preact';
 import ReactModal from 'react-modal';
 import elementClass from 'element-class';
+import classNames from 'classnames';
 import s from './Modal.scss';
 
 const style = {
@@ -45,7 +46,7 @@ export default class Modal extends Component {
 				{ ...this.props }
 				className={s.warp}
 			>
-				{onRequestClose ? <button className={s.close} onClick={onRequestClose}>关闭</button> : null}
+				{onRequestClose ? <button className={classNames(s.close, 'icon-add')} onClick={onRequestClose} /> : null}
 				{children}
 			</ReactModal>
 		);

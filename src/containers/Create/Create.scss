@@ -40,32 +40,16 @@
 	vertical-align: middle;
 }
 
-.nav {
+.form {
 	padding: 0 1rem;
-
+	margin-top: 1rem;
 	li {
+		margin-bottom: 0.5rem;
 		height: 1rem;
-		border-top: 1px solid $gray-lighter;
-		height: 3.5rem;
-		line-height: 3.5rem;
+		height: 2.5rem;
+		line-height: 2.5rem;
 		position: relative;
-
-		span {
-			font-size: 2rem;
-			height: 3.5rem;
-			line-height: 3.5rem;
-			display: inline-block;
-			vertical-align: middle;
-			margin-right: 0.3rem;
-		}
-
-		.arrow {
-			position: absolute;
-			width: 1rem;
-			height: 1rem;
-			right: 0rem;
-			font-size: 1.2rem;
-		}
+		float: left;
 	}
 }
 
@@ -73,8 +57,7 @@
 	width: fixpx(80);
 	height: fixpx(32);
 	line-height: fixpx(32);
-	font-size: 0.8rem;
-	text-align: center;
+	font-size: 0.2rem;
 	padding: 0 0.5rem;
 	color: #d71111;
 	border-radius: 10rem;
@@ -83,4 +66,8 @@
 	position: absolute;
 	right: 1rem;
 	top: 9rem;
+}
+
+.select::before {
+
 }

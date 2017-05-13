@@ -3,8 +3,15 @@ import classNames from 'classnames';
 import s from './UserCenter.scss';
 import DockBar from '~/components/DockBar';
 import face from './face.jpg';
+import Modal from '~/components/Modal';
 
 export default class UserCenter extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			showModal: true
+		};
+	}
 
 	render({ path }) {
 		return (
@@ -22,6 +29,18 @@ export default class UserCenter extends Component {
 					</ul>
 				</div>
 				<DockBar current={4} />
+				<Modal
+					contentLabel="ModalB"
+					isOpen={this.state.showModal}
+					onRequestClose={this.handleCloseModal}
+					shouldCloseOnOverlayClick={true}
+				>
+					<ul>
+						<li>基本资料</li>
+						<li>作品</li>
+						<li>简历</li>
+					</ul>
+				</Modal>
 			</div>
 		);
 	}
