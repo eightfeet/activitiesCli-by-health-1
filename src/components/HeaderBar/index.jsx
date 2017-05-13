@@ -6,16 +6,9 @@ import logo from '~/assets/logo.png';
 import svglogo from '~/assets/logo.svg';
 
 class HeaderBar extends Component {
-	constructor() {
-		super();
-		this.state = {
-			isSearch: false,
-			isSubMenu: false
-		};
-	}
-
 	render() {
-		const { Next } = this.props;
+		const { Next, children } = this.props;
+		console.log(children);
 		return (
       <header>
         <div className={`${s.heardbar} clearfix  bg-orangered`}>
@@ -30,18 +23,11 @@ class HeaderBar extends Component {
 					</div> : null
 					}
           <div className={`${s.fixright} ${s.headerbarIcon}`} >
-            <Link href={Next ? Next.link : null}>
+            {children.length > 0 ? null : <Link href={Next ? Next.link : null}>
               <span className={`${Next ? Next.icon : null} ${s.bannerico}`} />
-            </Link>
+            </Link>}
+						{children}
           </div>
-
-        </div>
-        <div
-          className={this.state.isSubMenu
-          ? `fr ${s.submenu} show`
-          : `fr ${s.submenu} hide`}
-          onClick={this.handlerCloseMenu}
-        >
         </div>
       </header>
 		);

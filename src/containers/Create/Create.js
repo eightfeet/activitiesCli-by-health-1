@@ -3,9 +3,24 @@ import classNames from 'classnames';
 import s from './Create.scss';
 import DockBar from '~/components/DockBar';
 import Select from '~/components/Select';
+import history from '~/core/history';
 import face from './face.jpg';
 
 export default class Create extends Component {
+
+	handleCreated = () => {
+		console.log('history', history);
+		const {user, handleUser} = this.context;
+		handleUser({
+			...user,
+			created: true
+		});
+
+		setTimeout(() => {
+			history.push('/');
+		}, 100);
+
+	}
 
 	render({ path }) {
 		return (
@@ -35,7 +50,7 @@ export default class Create extends Component {
 							</Select>
 						</li>
 					</ul>
-					<div className="btn mgt2 w9 center" onClick={this.handleShowShare}>创建名片</div>
+					<div className="btn mgt2 w9 center" onClick={this.handleCreated}>创建名片</div>
 				</div>
 				<DockBar />
 			</div>

@@ -1,7 +1,6 @@
 import { h, Component } from 'preact';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
-import DockBar from '~/components/DockBar';
 import { FStringPrivacy, FTimeStamp } from '~/utils/fliter';
 import history from '~/core/history';
 import classNames from 'classnames';
@@ -22,13 +21,8 @@ export default class Home extends Component {
 	constructor() {
 		super();
 		this.state = {
-			created: false,
 			showModal: false,
-			showModalb: false,
-			voiceId: null,
-			voiceStatus: '0',
 			index: 0,
-			share: false,
 			swipe: [1, 2, 3, 4],
 			works: [1, 2, 3, 4]
 		};
@@ -39,17 +33,6 @@ export default class Home extends Component {
 		this.setState({created: this.context.user.created});
 	}
 
-	handleShowShare = () => {
-		this.setState({
-			share: true
-		});
-	}
-
-	handleHideShare = () => {
-		this.setState({
-			share: false
-		});
-	}
 
 	handelLoading = () => {
 		Loading.show();
@@ -80,23 +63,26 @@ export default class Home extends Component {
 		}
 	}
 
+	handleAdd = () => {
+		history.push('/cardholder');
+	}
+
 	render() {
 		return (
 			<div className={s.root}>
 				<div className={classNames(s.wrap, 'center', 'pr')}>
 					<div className={s.orbg} />
-					{this.state.created ?
-						<div className="pdb5-5 w9 center">
+						<div className="w9 center pdb5-5">
 							<div className={s.face}>
 								<img src={face} alt=""/>
 							</div>
-							<div className="">
+							<div>
 								<div className={s.card}>
 									<h3 className="w9 center pdt5">李大厨</h3>
 									<ul className={classNames('clearfix', 'nls', 'w9', 'center', s.info)}>
 										<li className="w2 al-r">电话：</li>
-										<li className="w5 font-biggest">13783821431</li>
-										<li className="w3 al-r"><span className={s.btnrz}>去认证</span></li>
+										<li className="w4 font-biggest">13783821431</li>
+										<li className="w4 al-r"><span className={classNames(s.btnrz, 'icon-v')}>已认证</span></li>
 										<li className="w2 al-r">公司：</li>
 										<li className="w8">未知</li>
 										<li className="w2 al-r">邮箱：</li>
@@ -194,16 +180,9 @@ export default class Home extends Component {
 									</div>
 								</div>
 							</div>
-							<div className="btn mgt-8" onClick={this.handleShowShare}>递交名片</div>
-						</div> :
-						<div className={s.creat}>
-							<Link href="/create"><span className="icon-add" /> <br /><br />还没有创建名片哦，<br />赶快创建吧!</Link>
+							<div className="btn mgt-8" onClick={this.handleAdd}>加入到名片夹</div>
 						</div>
-					}
 				</div>
-				{
-					this.state.share ? <div className={s.over} onClick={this.handleHideShare}><span><img src={require('./qfx.png')} alt=""/></span></div> : null
-				}
 				<Modal
 					contentLabel="ModalB"
 					isOpen={this.state.showModalb}
@@ -214,7 +193,6 @@ export default class Home extends Component {
 						<h2 className="al-c mgb1" >modalB</h2>
 					</div>
 				</Modal>
-				<DockBar current={1} />
 			</div>
 		);
 	}

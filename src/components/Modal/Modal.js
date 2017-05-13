@@ -46,7 +46,7 @@ export default class Modal extends Component {
 				{ ...this.props }
 				className={s.warp}
 			>
-				{onRequestClose ? <button className={classNames(s.close, 'icon-add')} onClick={onRequestClose} /> : null}
+				{onRequestClose ? <button className={classNames(s.close, 'icon-close')} onClick={onRequestClose} /> : null}
 				{children}
 			</ReactModal>
 		);

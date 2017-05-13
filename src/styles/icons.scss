@@ -1,21 +1,3 @@
-$icon-add: "\e900";
-$icon-downarrow: "\e90d";
-$icon-uparrow: "\e90e";
-$icon-mpj: "\e90c";
-$icon-zan: "\e901";
-$icon-hot: "\e902";
-$icon-fav: "\e90f";
-$icon-rightarrow: "\e903";
-$icon-empty: "\e904";
-$icon-bp: "\e905";
-$icon-mpj2: "\e906";
-$icon-wo: "\e907";
-$icon-mp: "\e908";
-$icon-bj: "\e909";
-$icon-leftarrow: "\e90a";
-$icon-jhmp: "\e90b";
-
-
 /* stylelint-disable */
 @mixin font-face($font-family,$file-path,$font-weight: normal,$font-style:normal,$asset-pipeline: false) {
   @font-face {
@@ -59,84 +41,66 @@ $icon-jhmp: "\e90b";
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-.icon-add {
-  &:before {
-    content: $icon-add;
-  }
+.icon-yes:before {
+  content: "\e914";
 }
-.icon-downarrow {
-  &:before {
-    content: $icon-downarrow;
-  }
+.icon-close:before {
+  content: "\e913";
 }
-.icon-uparrow {
-  &:before {
-    content: $icon-uparrow;
-  }
+.icon-add:before {
+  content: "\e902";
 }
-.icon-mpj {
-  &:before {
-    content: $icon-mpj;
-  }
+.icon-zan:before {
+  content: "\e903";
 }
-.icon-zan {
-  &:before {
-    content: $icon-zan;
-  }
+.icon-hot:before {
+  content: "\e904";
 }
-.icon-hot {
-  &:before {
-    content: $icon-hot;
-  }
+.icon-rightarrow:before {
+  content: "\e905";
 }
-.icon-fav {
-  &:before {
-    content: $icon-fav;
-  }
+.icon-empty:before {
+  content: "\e906";
 }
-.icon-rightarrow {
-  &:before {
-    content: $icon-rightarrow;
-  }
+.icon-bp:before {
+  content: "\e907";
 }
-.icon-empty {
-  &:before {
-    content: $icon-empty;
-  }
+.icon-mpj2:before {
+  content: "\e908";
 }
-.icon-bp {
-  &:before {
-    content: $icon-bp;
-  }
+.icon-wo:before {
+  content: "\e909";
 }
-.icon-mpj2 {
-  &:before {
-    content: $icon-mpj2;
-  }
+.icon-mp:before {
+  content: "\e90a";
 }
-.icon-wo {
-  &:before {
-    content: $icon-wo;
-  }
+.icon-bj:before {
+  content: "\e90b";
 }
-.icon-mp {
-  &:before {
-    content: $icon-mp;
-  }
+.icon-leftarrow:before {
+  content: "\e90c";
 }
-.icon-bj {
-  &:before {
-    content: $icon-bj;
-  }
+.icon-jhmp:before {
+  content: "\e90d";
 }
-.icon-leftarrow {
-  &:before {
-    content: $icon-leftarrow;
-  }
+.icon-mpj:before {
+  content: "\e90e";
 }
-.icon-jhmp {
-  &:before {
-    content: $icon-jhmp;
-  }
+.icon-downarrow:before {
+  content: "\e90f";
+}
+.icon-uparrow:before {
+  content: "\e910";
+}
+.icon-fav:before {
+  content: "\e911";
+}
+.icon-v:before {
+  content: "\e900";
+}
+.icon-tel:before {
+  content: "\e901";
+}
+.icon-del:before {
+  content: "\e912";
 }

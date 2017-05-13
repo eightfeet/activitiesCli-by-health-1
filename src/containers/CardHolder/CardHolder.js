@@ -1,9 +1,12 @@
 import { h, Component } from 'preact';
+import classNames from 'classnames';
 import DockBar from '~/components/DockBar';
 import HeaderBar from '~/components/HeaderBar';
 import ScrollLoading from '~/components/ScrollLoading';
 import Modal from '~/components/Modal';
+import history from '~/core/history';
 import s from './CardHolder.scss';
+import { Link } from 'preact-router/match';
 
 
 export default class CardHolder extends Component {
@@ -11,8 +14,8 @@ export default class CardHolder extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-			showModal: true
+			list: [1, 2],
+			showModal: false
 		};
 	}
 
@@ -24,6 +27,10 @@ export default class CardHolder extends Component {
 		this.setState({ showModal: false });
 	}
 
+	handleItem = () => {
+		history.push('/card');
+	}
+
 	render() {
 		const { list } = this.state;
 		return (
@@ -31,7 +38,6 @@ export default class CardHolder extends Component {
 				<HeaderBar
 					setTitle="名片夹"
 					// goBack
-					Next={{icon: 'icon-bj', link: '/'}}
 				/>
 				<div className={s.listwarp}>
 					<ScrollLoading
@@ -43,13 +49,16 @@ export default class CardHolder extends Component {
 							{
 								list.map(item => (
 									<li className="clearfix" key={item}>
-										<div className="w2-5 fl">
+										<div className="w2-5 fl" onClick={this.handleItem}>
 											<img src={require('./face.jpg')} alt=""/>
 										</div>
-										<div className="w7-5">
-											<h3 className="txt_cut font">差距卡桑德拉会计师大会拉开绝世独立空间啊还是到了看见哈时代里看见哈时间的</h3>
-											<p className="txt_cut gray font-small">(20人)</p>
+										<div className="w6" onClick={this.handleItem}>
+											<h3 className="txt_cut font">谢谢小</h3>
+											<p className="txt_cut gray font-small">13111232123</p>
 										</div>
+										<Link href={`tel:${13111232123}`}>
+											<span className={classNames('icon-tel', s.tel)} />
+										</Link>
 									</li>
 								))
 							}

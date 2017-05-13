@@ -2,6 +2,7 @@ import { h, Component } from 'preact';
 import DockBar from '~/components/DockBar';
 import HeaderBar from '~/components/HeaderBar';
 import ScrollLoading from '~/components/ScrollLoading';
+import history from '~/core/history';
 import s from './Organization.scss';
 
 export default class Organization extends Component {
@@ -9,13 +10,17 @@ export default class Organization extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+			list: [1]
 		};
 	}
 
 	handleAction = () => new Promise((resolve) => {
 		console.log('22222');
 	});
+
+	handleEnter = () => {
+		history.push('/orgd');
+	}
 
 	render() {
 		console.log('s', s);
@@ -36,12 +41,12 @@ export default class Organization extends Component {
 						<ul className={`${s.list} nls`} >
 							{
 								list.map(item => (
-									<li className="clearfix" key={item}>
+									<li className="clearfix" key={item} onClick={this.handleEnter}>
 										<div className="w2-5 fl">
 											<img src={require('./face.jpg')} alt=""/>
 										</div>
 										<div className="w7-5">
-											<h3 className="txt_cut font">差距卡桑德拉会计师大会拉开绝世独立空间啊还是到了看见哈时代里看见哈时间的</h3>
+											<h3 className="txt_cut font">哈德帮</h3>
 											<p className="txt_cut gray font-small">(20人)</p>
 										</div>
 									</li>
