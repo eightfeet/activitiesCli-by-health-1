@@ -1,5 +1,18 @@
+let url;
 
-export const apiUrl = "";
+if (process.env.NODE_ENV === 'production') {
+	url = ''; // 生产地址
+}
+
+if (process.env.NODE_ENV === 'development') {
+	url = '/cook'; // 开发代理http://wx-test.by-health.com地址
+}
+
+if (process.env.NODE_ENV === 'sit') {
+	url = ''; // 测试环境地址
+}
+
+export const apiUrl = url;
 
 export const wechatInfo = {
 	appId: 'wxb425b33623e260d4',
