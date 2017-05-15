@@ -2,7 +2,7 @@ import { h, Component } from 'preact';
 import { Router } from 'preact-router';
 import './../styles/global.common';
 import history from '~/core/history';
-import { register } from '~/api';
+import { register, getCookInfo } from '~/api';
 
 import Home from '~/containers/Home';
 import CardHolder from '~/containers/CardHolder';
@@ -11,6 +11,8 @@ import OrganizationDetail from '~/containers/OrganizationDetail';
 import UserCenter from '~/containers/UserCenter';
 import Create from '~/containers/Create';
 import Works from '~/containers/Works';
+import Invitation from '~/containers/Invitation';
+
 import Resume from '~/containers/Resume';
 
 import BaseInfo from '~/containers/BaseInfo';
@@ -31,7 +33,8 @@ export default class App extends Component {
 		this.state = {
 			user: {
 				name: 'xiehuiming',
-				created: false
+				created: false,
+				cookerId: 1
 			}
 		};
 	}
@@ -39,6 +42,8 @@ export default class App extends Component {
 
 	componentWillMount() {
 		register();
+		console.log(222);
+		getCookInfo(1);
 	}
 
 
@@ -68,6 +73,7 @@ export default class App extends Component {
 					<BaseInfo path="/baseinfo" />
 					<Resume path="/resume" />
 					<Works path="/works" />
+					<Invitation path="/invitation" />
 					<Organization path="/organization"/>
 					<OrganizationDetail path="/orgd" />
 					<UserCenter path="/usercenter" />

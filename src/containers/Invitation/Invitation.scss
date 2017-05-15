@@ -1,0 +1,97 @@
+.root{
+	height: 100%;
+	overflow-y: auto;
+	background-color: $gray-lightest;
+	padding: 1rem;
+}
+
+.card {
+	color: $gray;
+	position: relative;
+	padding-top: 2.5rem;
+}
+
+.edit {
+	position: absolute;
+	right: 0rem;
+	top: 1rem;
+	font-size: 1.65rem;
+}
+
+.face {
+	width: 6rem;
+	height: 6rem;
+	background-color: #fff;
+	margin: 0 auto;
+	border-radius: 100rem;
+	border: 1px solid gray;
+	overflow: hidden;
+
+	img {
+		vertical-align: middle;
+		display: inline-block;
+		width: 100%;
+	}
+}
+
+.face::before {
+	display: inline-block;
+	height: 6rem;
+	vertical-align: middle;
+}
+
+.nav {
+	padding: 0 1rem;
+
+	li {
+		height: 1rem;
+		border-top: 1px solid $gray-lighter;
+		height: 3.5rem;
+		line-height: 3.5rem;
+		position: relative;
+
+		span {
+			font-size: 2rem;
+			height: 3.5rem;
+			line-height: 3.5rem;
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: 0.3rem;
+		}
+
+		.arrow {
+			position: absolute;
+			width: 1rem;
+			height: 1rem;
+			right: 0rem;
+			font-size: 1.2rem;
+		}
+	}
+}
+
+.btnrz {
+	width: fixpx(80);
+	height: fixpx(32);
+	line-height: fixpx(32);
+	font-size: 0.8rem;
+	text-align: center;
+	padding: 0 0.5rem;
+	color: #d71111;
+	border-radius: 10rem;
+	background-color: #fff;
+	border: solid 1px #d71111;
+	position: absolute;
+	right: 1rem;
+	top: 9rem;
+}
+
+.showcard {
+	width: 15rem;
+	height: 15rem;
+	text-align: center;
+	margin: 0 auto;
+
+	img {
+		width: 100%;
+	}
+}

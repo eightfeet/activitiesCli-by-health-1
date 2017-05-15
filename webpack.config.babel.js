@@ -211,8 +211,8 @@ module.exports = {
 		open: true,
 
 		proxy: {
-			'/cook': {
-				target: 'http://wx-test.by-health.com',
+			'/api': {
+				target: 'http://192.168.114.197:10080',
 				changeOrigin: true
 			}
 		}

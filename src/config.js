@@ -5,7 +5,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 if (process.env.NODE_ENV === 'development') {
-	url = '/cook'; // 开发代理http://wx-test.by-health.com地址
+	url = './api'; // 开发代理http://wx-test.by-health.com地址
 }
 
 if (process.env.NODE_ENV === 'sit') {
