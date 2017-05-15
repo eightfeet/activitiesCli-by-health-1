@@ -30,7 +30,7 @@ export default class Organization extends Component {
 				<HeaderBar
 					setTitle="帮派"
 					// goBack
-					Next={{icon: 'icon-add', link: '/'}}
+					// Next={{icon: 'icon-add', link: '/'}}
 				/>
 				<div className={s.listwarp}>
 					<ScrollLoading
