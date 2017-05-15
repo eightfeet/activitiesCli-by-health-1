@@ -211,7 +211,7 @@ module.exports = {
 		open: true,
 
 		proxy: {
-			'/common': {
+			'/cook': {
 				target: 'http://wx-test.by-health.com',
 				changeOrigin: true
 			}

@@ -2,6 +2,7 @@ import { h, Component } from 'preact';
 import { Router } from 'preact-router';
 import './../styles/global.common';
 import history from '~/core/history';
+import { register } from '~/api';
 
 import Home from '~/containers/Home';
 import CardHolder from '~/containers/CardHolder';
@@ -35,6 +36,12 @@ export default class App extends Component {
 		};
 	}
 
+
+	componentWillMount() {
+		register();
+	}
+
+
 	componentDidMount() {
 
 	}
@@ -52,7 +59,7 @@ export default class App extends Component {
 	render() {
 		console.log(this.context);
 		return (
-			<div id="app"  >
+			<div id="app">
 				<Router history={history}>
 					<Home path="/" />
 					<CardHolder path="/cardholder" />
