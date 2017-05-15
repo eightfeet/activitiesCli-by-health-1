@@ -6,7 +6,7 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress",
     "build": "cross-env NODE_ENV=production webpack -p --progress",
     "sit": "cross-env NODE_ENV=sit webpack -p --progress",
-    "push": "cross-env NODE_ENV=production webpack -p --progress && ./publish.sh",
+    "push": "cross-env NODE_ENV=production webpack -p --progress && chmod +x publish.sh && ./publish.sh",
 
     "test": "npm run -s lint && npm run -s test:karma",
     "test:karma": "karma start test/karma.conf.js --single-run",
